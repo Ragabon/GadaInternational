@@ -1,0 +1,15 @@
+﻿<div class="panel panel-default" ng-controller="TwitterWidget as vm">
+    <div class="panel-heading"><h4>Tweets</h4></div>
+    <div class="panel-body">
+        <div ng-repeat="tweet in vm.tweetsList">
+            <div class="row">
+                <img src="{{tweet.imageUrl}}" class="img-circle pull-left" style="margin-right: 15px;" />
+                <p>
+                    {{tweet.tweet}}
+                    <br />
+                    <hr />
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

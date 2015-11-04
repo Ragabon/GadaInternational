@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4ECDE964-7BC5-46AB-8BBA-EE869927A61E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gada.Infrastructure.Data.Dapper</RootNamespace>
+    <AssemblyName>Gada.Infrastructure.Data.Dapper</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>..\packages\Dapper.1.42\lib\net45\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\AreaQueries.cs" />
+    <Compile Include="Queries\DiscussionQueries.cs" />
+    <Compile Include="Queries\InterestQueries.cs" />
+    <Compile Include="Queries\PostQueries.cs" />
+    <Compile Include="Queries\SkillQueries.cs" />
+    <Compile Include="Queries\UsageQueries.cs" />
+    <Compile Include="Queries\UserQueries.cs" />
+    <Compile Include="Repositories\Accounts\AccountsRepository.cs" />
+    <Compile Include="Repositories\Discussions\AreasRepository.cs" />
+    <Compile Include="Repositories\Discussions\DiscussionRepository.cs" />
+    <Compile Include="Repositories\Discussions\PostRepository.cs" />
+    <Compile Include="Repositories\Discussions\UsersRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\Interests\InterestCategoriesRepository.cs" />
+    <Compile Include="Repositories\Interests\InterestsRepository.cs" />
+    <Compile Include="Repositories\Skills\SkillCategoriesRepository.cs" />
+    <Compile Include="Repositories\Skills\SkillsRepository.cs" />
+    <Compile Include="Repositories\Usage\LogRepository.cs" />
+    <Compile Include="Repositories\Usage\LogTypeRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gada.Domain.Core\Gada.Domain.Core.csproj">
+      <Project>{bb94634c-7bcd-405e-b282-2f084f9da729}</Project>
+      <Name>Gada.Domain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gada.Domain\Gada.Discussions.csproj">
+      <Project>{af99fcc0-3234-4740-add8-a685d6b6e9dc}</Project>
+      <Name>Gada.Discussions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gada.Interests\Gada.Interests.csproj">
+      <Project>{e865d71f-6b84-4461-b273-73185d8bbe67}</Project>
+      <Name>Gada.Interests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gada.Skills\Gada.Skills.csproj">
+      <Project>{835b75f1-2036-46e1-9926-6caf4c9b5b29}</Project>
+      <Name>Gada.Skills</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gada.Usage\Gada.Usage.csproj">
+      <Project>{059622be-1b1f-41ce-81dd-bc8a8d42f47a}</Project>
+      <Name>Gada.Usage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gada.Users\Gada.Accounts.csproj">
+      <Project>{6875f413-3391-4740-ba51-429b5adaaaa8}</Project>
+      <Name>Gada.Accounts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,75 @@
+﻿<div class="col-xs-5">
+    <form class="form-horizontal" name="loginForm">
+        <h3>Login</h3>
+        <div class="form-group">
+            <label class="control-label col-xs-4">Email Address</label>
+            <div class="col-xs-7">
+                <input type="text" class="form-control" ng-model="vm.login.email" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-4">Password</label>
+            <div class="col-xs-7">
+                <input type="password" class="form-control" ng-model="vm.login.password" />
+            </div>
+        </div>
+        <div class="col-xs-7 col-xs-offset-4" style="padding-right: 0;">
+            <!--<a href="#" style="text-decoration: none;">Forgotten Password</a>-->
+            <button id="btnLogin" class="btn btn-primary pull-right" ng-click="vm.loginSubmit(loginForm)">Login</button>
+        </div>
+    </form>
+</div>
+
+<div class="col-xs-6">
+    <h3>Register</h3>
+    <form class="form-horizontal" name="registerForm">
+        <div class="form-group">
+            <label class="control-label col-xs-4">Email Address</label>
+            <div class="col-xs-7">
+                <input type="text" class="form-control" ng-model="vm.register.email" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-4">Password</label>
+            <div class="col-xs-6">
+                <input type="password" class="form-control" ng-model="vm.register.password" ng-change="vm.checkPw()" />
+            </div>
+            <div ng-show="vm.pwMessage === '' && vm.pwHadFocus === 1" class="col-xs-1 glyphicon glyphicon-ok" style="font-size:20px; color:#83C521;margin-top:5px; padding-left:0;"></div>
+            <div ng-show="vm.pwMessage !=='' && vm.pwHadFocus === 1" class="col-xs-1 glyphicon glyphicon-remove" style="font-size:20px; color: red; margin-top:5px; padding-left:0;"></div>
+        </div>
+        <div class="form-group" ng-show="vm.pwMessage !== '' && vm.pwHadFocus === 1">
+            <div class="col-xs-offset-4 col-xs-7" style="font-weight:bold;">
+                {{vm.pwMessage}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-4">Forename</label>
+            <div class="col-xs-7">
+                <input type="text" class="form-control" ng-model="vm.register.firstName" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-4">Surname</label>
+            <div class="col-xs-7">
+                <input type="text" class="form-control" ng-model="vm.register.lastName" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-4">City</label>
+            <div class="col-xs-7">
+                <input type="text" class="form-control" ng-model="vm.register.city" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-4">Country</label>
+            <div class="col-xs-7">
+                <input type="text" class="form-control" ng-model="vm.register.country" />
+            </div>
+        </div>
+        <div class="col-xs-11" style="padding-right:0;">
+            <button id="btnRegister" ng-disabled="vm.pwMessage !== '' || vm.pwHadFocus === 0" class="btn btn-primary pull-right" ng-click="vm.registerSubmit(registerForm)">Register</button>
+        </div>
+    </form>
+</div>
+<div class="col-xs-5 col-xs-offset-5">{{ vm.message }}</div>
+

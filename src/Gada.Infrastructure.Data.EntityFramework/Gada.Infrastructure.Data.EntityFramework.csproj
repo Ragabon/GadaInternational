@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1F8C31D9-C2B5-4925-957D-E8848D5E8D4B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gada.Infrastructure.Data.EntityFramework</RootNamespace>
+    <AssemblyName>Gada.Infrastructure.Data.EntityFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accounts\AccountsContext.cs" />
+    <Compile Include="Accounts\AccountsMigrations\201510161944025_Intitial.cs" />
+    <Compile Include="Accounts\AccountsMigrations\201510161944025_Intitial.Designer.cs">
+      <DependentUpon>201510161944025_Intitial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts\AccountsMigrations\201510211159356_AddedUsageCountsToUser.cs" />
+    <Compile Include="Accounts\AccountsMigrations\201510211159356_AddedUsageCountsToUser.Designer.cs">
+      <DependentUpon>201510211159356_AddedUsageCountsToUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounts\AccountsMigrations\Configuration.cs" />
+    <Compile Include="Discussions\DiscussionsContext.cs" />
+    <Compile Include="Discussions\DiscussionsMigrations\201510161943455_Intitial.cs" />
+    <Compile Include="Discussions\DiscussionsMigrations\201510161943455_Intitial.Designer.cs">
+      <DependentUpon>201510161943455_Intitial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Discussions\DiscussionsMigrations\Configuration.cs" />
+    <Compile Include="Interests\InterestsContext.cs" />
+    <Compile Include="Interests\InterestsMigrations\201510161943307_Intitial.cs" />
+    <Compile Include="Interests\InterestsMigrations\201510161943307_Intitial.Designer.cs">
+      <DependentUpon>201510161943307_Intitial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interests\InterestsMigrations\Configuration.cs" />
+    <Compile Include="Mapping\Accounts\InterestMap.cs" />
+    <Compile Include="Mapping\Accounts\SkillMap.cs" />
+    <Compile Include="Mapping\Accounts\UserInterestMap.cs" />
+    <Compile Include="Mapping\Accounts\UserSkillMap.cs" />
+    <Compile Include="Mapping\Discussions\AreaMap.cs" />
+    <Compile Include="Mapping\Discussions\DiscussionInterestMap.cs" />
+    <Compile Include="Mapping\Discussions\InterestMap.cs" />
+    <Compile Include="Mapping\Discussions\CommentMap.cs" />
+    <Compile Include="Mapping\Discussions\DiscussionMap.cs" />
+    <Compile Include="Mapping\Discussions\PostMap.cs" />
+    <Compile Include="Mapping\Accounts\UserMap.cs" />
+    <Compile Include="Mapping\Discussions\UserMap.cs" />
+    <Compile Include="Mapping\Interests\InterestCategoryMap.cs" />
+    <Compile Include="Mapping\Interests\InterestMap.cs" />
+    <Compile Include="Mapping\Skills\SkillCategoryMap.cs" />
+    <Compile Include="Mapping\Skills\SkillMap.cs" />
+    <Compile Include="Mapping\Usage\LogMap.cs" />
+    <Compile Include="Mapping\Usage\LogTypeMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository.cs" />
+    <Compile Include="Skills\SkillsContext.cs" />
+    <Compile Include="Skills\SkillsMigrations\201510161943089_Intitial.cs" />
+    <Compile Include="Skills\SkillsMigrations\201510161943089_Intitial.Designer.cs">
+      <DependentUpon>201510161943089_Intitial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Skills\SkillsMigrations\Configuration.cs" />
+    <Compile Include="Usage\UsageContext.cs" />
+    <Compile Include="Usage\UsageMigrations\201510211242594_Intitial.cs" />
+    <Compile Include="Usage\UsageMigrations\201510211242594_Intitial.Designer.cs">
+      <DependentUpon>201510211242594_Intitial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usage\UsageMigrations\Configuration.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gada.Domain.Core\Gada.Domain.Core.csproj">
+      <Project>{bb94634c-7bcd-405e-b282-2f084f9da729}</Project>
+      <Name>Gada.Domain.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gada.Domain\Gada.Discussions.csproj">
+      <Project>{af99fcc0-3234-4740-add8-a685d6b6e9dc}</Project>
+      <Name>Gada.Discussions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gada.Interests\Gada.Interests.csproj">
+      <Project>{e865d71f-6b84-4461-b273-73185d8bbe67}</Project>
+      <Name>Gada.Interests</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gada.Skills\Gada.Skills.csproj">
+      <Project>{835b75f1-2036-46e1-9926-6caf4c9b5b29}</Project>
+      <Name>Gada.Skills</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gada.Usage\Gada.Usage.csproj">
+      <Project>{059622be-1b1f-41ce-81dd-bc8a8d42f47a}</Project>
+      <Name>Gada.Usage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Gada.Users\Gada.Accounts.csproj">
+      <Project>{6875f413-3391-4740-ba51-429b5adaaaa8}</Project>
+      <Name>Gada.Accounts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Accounts\AccountsMigrations\201510161944025_Intitial.resx">
+      <DependentUpon>201510161944025_Intitial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounts\AccountsMigrations\201510211159356_AddedUsageCountsToUser.resx">
+      <DependentUpon>201510211159356_AddedUsageCountsToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Discussions\DiscussionsMigrations\201510161943455_Intitial.resx">
+      <DependentUpon>201510161943455_Intitial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interests\InterestsMigrations\201510161943307_Intitial.resx">
+      <DependentUpon>201510161943307_Intitial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Skills\SkillsMigrations\201510161943089_Intitial.resx">
+      <DependentUpon>201510161943089_Intitial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usage\UsageMigrations\201510211242594_Intitial.resx">
+      <DependentUpon>201510211242594_Intitial.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

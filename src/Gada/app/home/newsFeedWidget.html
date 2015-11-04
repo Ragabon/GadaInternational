@@ -1,0 +1,20 @@
+﻿<div ng-controller="NewsFeedWidget as vm">
+    
+    <div class="panel panel-default" ng-repeat="newsFeed in vm.newsFeeds">
+        <div class="panel-body">
+            <p class="lead">
+                <gravatar-image data-gravatar-email="newsFeed.createdBy" data-gravatar-size="70" data-gravatar-rating="pg" data-gravatar-default="identicon" data-gravatar-secure="true" class="pull-left"></gravatar-image>
+                <a href="">{{newsFeed.createdBy}}</a> <span ng-bind-html="newsFeed.event"></span>
+            </p>
+            <div class="pull-right">
+                <small class="text-muted">created {{newsFeed.createdOnRelativeTime}}</small>
+            </div>
+            <div class="clearfix"></div>
+            <hr>
+            <p>
+                <span ng-bind-html="newsFeed.content"></span>
+            </p>
+        </div>
+    </div>
+
+</div>

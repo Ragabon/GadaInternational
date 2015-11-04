@@ -1,0 +1,166 @@
+﻿<!-- profile section -->
+<div class="col-xs-12">
+
+    <div class="panel panel-default">
+        <div class="panel-thumbnail"></div>
+        <div class="panel-body">
+
+            <img src="assets/img/logo_large.png" alt="Gada" class="logo_large" />
+            <div ng-show="vm.gadaUser === undefined">
+                <h1>Welcome</h1>
+                <p>
+                    Join Gada today to receive personalized alerts and feeds or contribute to discussions and ideas.
+                    <br />
+                    It's completely free and easy to do, sign up or sign in following the link below. Soon you will be able to sign up using your Facebook, Twitter or LinkedIn account.
+                    <br />
+                    To sign up please follow the link below.
+                </p>
+                <p>
+                    <a href="#login" class="btn btn-primary">Join and contribute to Gada</a>
+                </p>
+            </div>
+            <div ng-show="vm.gadaUser !== undefined">
+                <h1>Hi {{vm.gadaUser.forename}},</h1><h1>Welcome to Gada!</h1>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Actions section -->
+
+<div class="col-xs-12">
+
+    <div class="panel panel-default">
+        <div class="panel-body panel-body-no-padding">
+
+            <ul class="actions">
+                <li class="col-sm-4" ><a href="#discussions"><span class="glyphicon glyphicon-bullhorn actions-discuss"></span>Discuss</a></li>
+                <li class="col-sm-4" style="background-color:#eee; cursor:no-drop; border-right:2px solid #fff;" title="Coming Soon"><span class="glyphicon glyphicon-cloud actions-idea" title="Coming Soon"></span>Submit an idea</li>
+                <li class="col-sm-4" style="background-color:#eee; cursor:no-drop;" title="Coming Soon"><span class="glyphicon glyphicon-blackboard actions-project"></span>Join a project</li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Carousel section -->
+<div class="col-xs-12">
+
+    <div class="panel panel-default">
+        <div class="panel-body panel-body-no-padding">
+
+            <div id="myCarousel" class="carousel slide" data-interval="4000" data-ride="carousel">
+                <!-- Carousel indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                    <!--<li data-target="#myCarousel" data-slide-to="3"></li>-->
+                </ol>
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                    <div class="active item">
+                        <img src="../assets/img/slide-01.jpg" alt="">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1>Join the discussion</h1>
+                                <p class="lead">Crowdsourcing social change: how do we make Gada work?</p>
+                                <a class="btn btn-large btn-primary" href="#discussions">Join the discussion</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="../assets/img/slide-02.jpg" alt="">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1>Code of conduct</h1>
+                                <p class="lead">Please read out draft code of conduct</p>
+                                <a class="btn btn-large btn-primary" href="../../assets/docs/GADA Draft code of Conduct v0.pdf" target="blank">Code of conduct</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="../assets/img/slide-03.jpg" alt="">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1>Quick opening survey</h1>
+                                <p class="lead">Please share your views on 10 key issues</p>
+                                <a class="btn btn-large btn-primary" href="https://docs.google.com/forms/d/10wcETCE2VIt-IHUFgWz1hF3VsrcZSfWwAYCTPkOh6fo/viewform" target="_blank">Take survey</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="item">
+                        <img src="../assets/img/slide-04.jpg" alt="">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1></h1>
+                                <p class="lead" style="color:#FF0D0D;">Are you a University student, researcher or professor? <br />We’d like to hear from you!</p>
+                                <a class="btn btn-large btn-primary" href="#">Gada News</a>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+                <!-- Carousel nav -->
+                <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- Main body -->
+
+<div class="col-sm-3 col-md-3 col-lg-3 col-xs-3">
+
+    <div ng-include="'app/news/newsWidget.html'"></div>
+
+</div>
+
+<div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
+
+    <div ng-include="'app/home/newsFeedWidget.html'"></div>
+
+</div>
+
+<div class="col-sm-3 col-md-3 col-lg-3 col-xs-3">
+
+    <div ng-include="'app/tweets/twitterWidget.html'"></div>
+
+    <!--<div class="panel panel-default">
+        <div class="panel-heading"><h4>Requests</h4></div>
+        <div class="panel-body">
+            <p class="lead"><img src="//placehold.it/150x150" class="img-circle pull-right"><a href="#">Example team needs you!</a></p>
+            <div class="clearfix"></div>
+            <p>
+                Example team is looking for contributors to join their project X!
+            </p>
+            <hr>
+            <p class="pull-right">
+                <a class="btn btn-large btn-primary" href="#">Join project</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4>Recent Projects</h4></div>
+        <div class="panel-body">
+            <p class="lead">Sample Project</p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam malesuada elit ac luctus pharetra. Vestibulum tempor nisl sit amet dui tempor posuere. Praesent laoreet risus lectus, non hendrerit tortor fermentum id. Nullam eu vulputate metus, hendrerit gravida tellus. Duis at magna vel urna sodales elementum. Maecenas vitae vestibulum arcu. Ut.
+            </p>
+        </div>
+    </div>-->
+
+</div>
+
+<script type="text/javascript">
+    console.log('home view loaded');
+</script>

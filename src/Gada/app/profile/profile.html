@@ -1,0 +1,23 @@
+﻿<h2>{{vm.profile.username}}</h2>
+
+<h3>Interests</h3>
+
+<div class="row">
+    <div class="col-sm-offset-1 col-sm-10">
+        <div class="col-sm-3" ng-repeat="interest in vm.interests">
+            <label>{{interest.title}}</label>
+            <input type="checkbox" value="interest.checked" />
+        </div>
+    </div>
+</div>
+
+<h3>Skills</h3>
+
+<div class="row">
+    <div class="col-sm-offset-1 col-sm-10">
+        <div class="col-sm-3" ng-repeat="skill in vm.skills">
+            <label class="control-label">{{skill.title}}</label>
+            <input type="checkbox" value="skill.checked" />
+        </div>
+    </div>
+</div>

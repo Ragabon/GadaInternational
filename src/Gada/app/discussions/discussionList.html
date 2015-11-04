@@ -1,0 +1,95 @@
+﻿<div class="col-sm-12">
+    <div class="pull-right">
+        <a href="#create-discussion" class="btn btn-primary">Start a new Discussion</a>
+    </div>
+    <br />
+    <hr />
+</div>
+
+<div class="col-sm-12">
+    <div class="page-section">
+        <h2>Discuss a problem on OpenPlaza </h2>
+        <div class="row">
+            <div class="col-sm-5">
+                <h4>How does it work?</h4>
+                <i class="fa fa-commenting fa-5x pull-left"></i>
+                <p>OpenPlaza is where is where the conversation happens: here you can connect with others and brainstorm your world-changing ideas. </p>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2 text-center">
+                <i class="fa fa-commenting fa-3x"></i><br /><br />
+                Anyone can start a discussion
+            </div>
+            <div class="col-sm-2 text-center">
+                <i class="fa fa-comments fa-3x"></i><br /><br />
+                Anyone can join a discussion and write posts
+            </div>
+            <div class="col-sm-2 text-center">
+                <i class="fa fa-thumbs-up fa-3x"></i><br /><br />
+                The best posts as upvoted by users get more visibility
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-9">
+    
+    <ul class="nav nav-tabs">
+        <li role="presentation" ng-class="{active: vm.selectedIndex == -1}"><a href="" ng-click="vm.getAllDiscussions(-1);">Recent</a></li>
+        <li role="presentation" ng-class="{active: $index  == vm.selectedIndex}" ng-repeat="area in vm.areaList"><a href="" ng-click="vm.getDiscussionsByArea($index, area.id);">{{area.title}}</a></li>
+    </ul>
+
+    <br />
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div ng-repeat="discussion in vm.discussionList">
+                <div class="row">
+
+                    <div class="col-sm-1 text-center">
+                        <span class="badge">{{discussion.votes}}</span>
+                        <br />
+                        <h6>Votes</h6>
+                    </div>
+
+                    <div class="col-sm-1 text-center">
+                        <span class="badge">{{discussion.posts}}</span>
+                        <br />
+                        <h6>Posts</h6>
+                    </div>
+                    <div class="col-sm-1 text-center">
+                        <span class="badge">{{discussion.views}}</span>
+                        <br />
+                        <h6>Views</h6>
+                    </div>
+
+                    <div class="col-sm-9">
+                        <h4><a href="#discussions/{{discussion.id}}">{{discussion.title}}</a></h4>
+                        
+                        <span ng-bind-html="discussion.description"></span>
+
+                        <span ng-repeat="interest in discussion.interests">
+                            <span class="interest-badge">
+                                <a href="#">
+                                    <span class="label label-warning">{{interest}}</span>
+                                </a>
+                            </span>
+                        </span>
+
+                        <span class="pull-right">
+                            <small class="text-muted">created {{discussion.created}} by <a href="#">{{discussion.createdBy}}</a></small>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- ad banners -->
+<div class="col-sm-3">
+    <div ng-include="'app/posts/latestPostsWidget.html'"></div>
+</div>

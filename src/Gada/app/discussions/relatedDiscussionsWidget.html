@@ -1,0 +1,18 @@
+﻿<div class="panel panel-default" ng-controller="RelatedDiscussionsWidget as vm">
+    <div class="panel-heading"><h4>Related Discussions</h4></div>
+    <div class="panel-body">
+        <div ng-repeat="discussion in vm.relatedDiscussions">
+            <div class="row">
+                <gravatar-image data-gravatar-email="discussion.createdBy" data-gravatar-size="70" data-gravatar-rating="pg" data-gravatar-default="identicon" data-gravatar-secure="true" class="pull-left"></gravatar-image>
+                <p>
+                    <h4><a href="#discussions/{{discussion.id}}">{{discussion.title}}</a></h4>
+                    <span ng-bind-html="discussion.description"></span>
+                    <br />
+                    <small class="text-muted">created {{discussion.createdOn}} by <a href="#">{{discussion.createdBy}}</a></small>
+                    <br />
+                    <hr />
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

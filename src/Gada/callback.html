@@ -1,0 +1,27 @@
+﻿<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <script src="assets/libs/oidc.js"></script>
+    <script>
+
+        var config = {
+            client_id: "implicitclient",
+            //authority: "https://localhost:44309/core",
+            authority: "https://localhost:44309/identity",
+            //load_user_profile : false,
+            //filter_protocol_claims: false,
+        };
+        var mgr = new OidcTokenManager(config);
+
+        mgr.processTokenCallbackAsync().then(function () {
+            console.log("token processed");
+            window.location.href = window.location.protocol + "//" + window.location.host + "/#/home";
+        },
+            function (error) {
+                vm.message = "error :" + (error.message || error);
+            });
+    </script>
+</body>
+</html>

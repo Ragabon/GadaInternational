@@ -1,0 +1,242 @@
+<<<<<<< HEAD:src/Gada/app/discussions/createDiscussion.js
+﻿(function () {
+    "use strict";
+
+    angular
+        .module("app.discussions")
+        .controller("CreateDiscussion", CreateDiscussion);
+
+    function CreateDiscussion($http, appSettings)
+    {
+        var rootUrl = appSettings.serverPath + "discussions";
+
+        var vm = this;
+
+        vm.tags = [];
+
+        vm.interests = '';
+        loadAllInterests();
+
+        vm.areas = '';
+        loadAreas();
+
+        vm.discussion = {
+            Title: '',
+            Description: '',
+            Area: '',
+            Interests: []
+        };
+
+        vm.orightml = '';
+        vm.htmlcontent = vm.orightml;
+        vm.disabled = false;
+
+        vm.loadTags = function (query) {
+            loadInterests(query);
+            return vm.tags;
+        };
+
+        function loadAreas() {
+            var req = {
+                method: 'GET',
+                url: appSettings.serverPath + "areas"
+            }
+
+            $http(req).success(function (response) {
+                console.log("success");
+
+                vm.areas = response;
+
+                console.log(response);
+            })
+            .error(function (err) {
+                console.log(err);
+            });
+        };
+
+        function loadAllInterests() {
+            var req = {
+                method: 'GET',
+                url: appSettings.serverPath + "interests"
+            }
+
+            $http(req).success(function (response) {
+                console.log("success");
+
+                vm.interests = response;
+
+                console.log(response);
+            })
+            .error(function (err) {
+                console.log(err);
+            });
+        };
+
+        function loadInterests(query) {
+            var req = {
+                method: 'GET',
+                url: appSettings.serverPath + "interests/find/" + query
+            }
+
+            $http(req).success(function (response) {
+                console.log("success");
+
+                vm.tags = [];
+
+                for (var i = 0; i < response.length; i++) {
+                    var obj = { text: response[i].interest };
+                    vm.tags.push(obj);
+                }
+
+                console.log(response);
+            })
+            .error(function (err) {
+                console.log(err);
+            });
+        };
+
+        vm.createDiscussionSubmit = function () {
+            var req = {
+                method: 'POST',
+                url: rootUrl,
+                headers: { 'Content-Type': 'application/json' },
+                data: vm.discussion
+            }
+
+            $http(req).success(function () {
+                console.log("success");
+            })
+            .error(function (err) {
+                console.log(vm.discussion.Title);
+                console.log(vm.discussion.Description);
+                console.log(err);
+            });
+        }
+    }
+
+=======
+﻿(function () {
+    "use strict";
+
+    angular
+        .module("gada")
+        .controller("createDiscussionController", ["$http", "appSettings", "$localStorage", "$state", createDiscussionController]);
+
+    function createDiscussionController($http, appSettings, $localStorage, $state)
+    {
+        var vm = this;
+        if ($localStorage.gadaUser != undefined)
+        {
+            vm.userId = $localStorage.gadaUser.id;
+        }
+        else
+        {
+            $state.go('login');
+        }
+        var rootUrl = appSettings.serverPath + "discussions";
+
+        vm.tags = [];
+
+        vm.interests = '';
+        loadAllInterests();
+
+        vm.areas = '';
+        loadAreas();
+
+        vm.discussion = {
+            UserId: vm.userId,
+            Title: '',
+            Description: '',
+            Area: '',
+            Interests: []
+        };
+
+        vm.orightml = '';
+        vm.htmlcontent = vm.orightml;
+        vm.disabled = false;
+
+        vm.loadTags = function (query) {
+            loadInterests(query);
+            return vm.tags;
+        };
+
+        function loadAreas() {
+            var req = {
+                method: 'GET',
+                url: appSettings.serverPath + "areas"
+            }
+
+            $http(req).success(function (response) {
+                console.log("success");
+
+                vm.areas = response;
+
+                console.log(response);
+            })
+            .error(function (err) {
+                console.log(err);
+            });
+        };
+
+        function loadAllInterests() {
+            var req = {
+                method: 'GET',
+                url: appSettings.serverPath + "interests"
+            }
+
+            $http(req).success(function (response) {
+                console.log("success");
+
+                vm.interests = response;
+
+                console.log(response);
+            })
+            .error(function (err) {
+                console.log(err);
+            });
+        };
+
+        function loadInterests(query) {
+            var req = {
+                method: 'GET',
+                url: appSettings.serverPath + "interests/find/" + query
+            }
+
+            $http(req).success(function (response) {
+                console.log("success");
+
+                vm.tags = [];
+
+                for (var i = 0; i < response.length; i++) {
+                    var obj = { text: response[i].interest };
+                    vm.tags.push(obj);
+                }
+
+                console.log(response);
+            })
+            .error(function (err) {
+                console.log(err);
+            });
+        };
+
+        vm.createDiscussionSubmit = function () {
+            var req = {
+                method: 'POST',
+                url: rootUrl,
+                headers: { 'Content-Type': 'application/json' },
+                data: vm.discussion
+            }
+
+            $http(req).success(function () {
+                $state.go('discussions')
+            })
+            .error(function (err) {
+                console.log(vm.discussion.Title);
+                console.log(vm.discussion.Description);
+                console.log(err);
+            });
+        }
+    }
+
+>>>>>>> 9afbbdd7c63e39d55c251a4d28614f8d3ae94b4c:src/Gada/app/components/discussions/createDiscussionController.js
+})();

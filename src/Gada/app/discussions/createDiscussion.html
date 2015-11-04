@@ -1,0 +1,84 @@
+﻿<div class="col-sm-12">
+    <h3>Create a new Discussion</h3>
+    <hr />
+</div>
+
+<!-- list of discussions -->
+<div class="col-sm-9">
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <form class="form-horizontal" name="createDiscussionForm">
+                <div class="form-group">
+                    <label class="control-label col-xs-1">Title</label>
+                    <div class="col-xs-11">
+                        <input type="text" class="form-control" ng-model="vm.discussion.Title" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div text-angular="text-angular" ta-toolbar-class="btn-toolbar" ta-toolbar-group-class="btn-group" ta-toolbar-button-class="btn btn-default" ta-toolbar-button-active-class="active" name="description" ng-model="vm.discussion.Description" ta-disabled='disabled' required></div>
+                    </div>
+                </div>
+                <hr />
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <label class="control-label">Area</label>
+                    </div>
+                    <br /><br />
+                    <div class="col-xs-12">
+                        <div class="btn-group btn-group-justified">
+                            <label ng-repeat="area in vm.areas" class="btn btn-lg btn-secondary" btn-radio="'{{area.id}}'" ng-model="vm.discussion.Area">
+                                <span class="fa {{area.icon}}"></span> {{area.title}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <label class="control-label">Interests</label>
+                    </div>
+                    <br /><br />
+                    <div class="col-xs-12">
+                        <tags-input name="interests" ng-model="vm.discussion.Interests" required>
+                            <auto-complete source="vm.loadTags($query)"></auto-complete>
+                        </tags-input>
+                    </div>
+                </div>
+                <div class="col-xs-12 pull-right" style="padding-right:0;">
+                    <submit id="btnCreate" class="btn btn-primary pull-right" ng-click="vm.createDiscussionSubmit(createDiscussionForm)">Create</submit>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- ad banners -->
+<div class="col-sm-3">
+    <div class="panel panel-blue">
+        <div class="panel-body">
+            <div class="lead">Gada's main areas</div>
+            <div ng-repeat="area in vm.areas">
+                <i class="fa {{area.icon}} fa-5x pull-left"></i>
+                <h4>{{area.title}}</h4>
+                <p>{{area.description}}</p>
+                <hr />
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="lead">Gada's interests</div>
+            <span ng-repeat="interest in vm.interests">
+                <span class="interest-badge">
+                    <a href="#">
+                        <span class="label label-warning">{{interest.interest}}</span>
+                    </a>
+                </span>
+            </span>
+        </div>
+    </div>
+</div>

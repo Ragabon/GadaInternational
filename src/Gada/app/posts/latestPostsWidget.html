@@ -1,0 +1,17 @@
+﻿<div class="panel panel-default" ng-controller="LatestPostsWidget as vm">
+    <div class="panel-heading"><h4>Latest Posts</h4></div>
+    <div class="panel-body">
+        <div ng-repeat="post in vm.latestPosts">
+            <div class="row">
+                <gravatar-image data-gravatar-email="post.postedBy" data-gravatar-size="70" data-gravatar-rating="pg" data-gravatar-default="identicon" data-gravatar-secure="true" class="pull-left"></gravatar-image>
+                <p>
+                    <span ng-bind-html="post.post"></span>
+                    <br />
+                    <small class="text-muted">created {{post.posted}} by <a href="#">{{post.postedBy}}</a></small>
+                    <br />
+                    <hr />
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

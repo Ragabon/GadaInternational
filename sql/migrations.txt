@@ -1,0 +1,24 @@
+add-migration -configuration Gada.Infrastructure.Data.EntityFramework.Discussions.DiscussionsMigrations.Configuration IntitialSnapshot -IgnoreChanges -verbose
+
+enable-migrations -ContextTypeName SkillsContext -MigrationsDirectory:Skills\SkillsMigrations
+add-migration -configuration Gada.Infrastructure.Data.EntityFramework.Skills.SkillsMigrations.Configuration Intitial -verbose
+update-database -configuration Gada.Infrastructure.Data.EntityFramework.Skills.SkillsMigrations.Configuration
+
+enable-migrations -ContextTypeName InterestsContext -MigrationsDirectory:Interests\InterestsMigrations
+add-migration -configuration Gada.Infrastructure.Data.EntityFramework.Interests.InterestsMigrations.Configuration Intitial -verbose
+update-database -configuration Gada.Infrastructure.Data.EntityFramework.Interests.InterestsMigrations.Configuration
+
+enable-migrations -ContextTypeName DiscussionsContext -MigrationsDirectory:Discussions\DiscussionsMigrations
+add-migration -configuration Gada.Infrastructure.Data.EntityFramework.Discussions.DiscussionsMigrations.Configuration Intitial -verbose
+update-database -configuration Gada.Infrastructure.Data.EntityFramework.Discussions.DiscussionsMigrations.Configuration
+
+enable-migrations -ContextTypeName AccountsContext -MigrationsDirectory:Accounts\AccountsMigrations
+add-migration -configuration Gada.Infrastructure.Data.EntityFramework.Accounts.AccountsMigrations.Configuration Intitial -verbose
+update-database -configuration Gada.Infrastructure.Data.EntityFramework.Accounts.AccountsMigrations.Configuration
+
+enable-migrations -ContextTypeName UsageContext -MigrationsDirectory:Usage\UsageMigrations
+add-migration -configuration Gada.Infrastructure.Data.EntityFramework.Usage.UsageMigrations.Configuration Intitial -verbose
+update-database -configuration Gada.Infrastructure.Data.EntityFramework.Usage.UsageMigrations.Configuration
+
+
+update-database -configuration Gada.Infrastructure.Data.EntityFramework.Accounts.AccountsMigrations.Configuration - script

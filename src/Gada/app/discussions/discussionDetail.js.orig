@@ -1,0 +1,131 @@
+﻿(function () {
+    "use strict";
+
+    angular
+        .module("app.discussions")
+        .controller("DiscussionDetail", DiscussionDetail);
+
+    function DiscussionDetail($http, appSettings) {
+        var discussionsRootUrl = appSettings.serverPath + "discussions";
+        var postsRootUrl = appSettings.serverPath + "posts";
+
+        var vm = this;
+<<<<<<< HEAD:src/Gada/app/discussions/discussionDetail.js
+=======
+        vm.userId = '';
+
+        if ($localStorage.gadaUser != undefined)
+        {
+            vm.userId = $localStorage.gadaUser.id;
+        }
+>>>>>>> 9afbbdd7c63e39d55c251a4d28614f8d3ae94b4c:src/Gada/app/components/discussions/discussionDetailController.js
+
+        vm.discussion = '';
+        vm.postCount = 0;
+        getDiscussion($stateParams.id);
+
+        vm.post = {
+            discussionId: $stateParams.id,
+            content: ''
+        };
+
+        vm.orightml = '';
+        vm.htmlcontent = vm.orightml;
+        vm.disabled = false;
+
+        function getDiscussion(id) {
+            var req = {
+                method: 'GET',
+                url: discussionsRootUrl + '/' + id
+            }
+
+            $http(req).success(function (response) {
+                console.log("success");
+                vm.discussion = response;
+                vm.postCount = vm.discussion.posts.length;
+                console.log(vm.discussion);
+            })
+            .error(function (err) {
+                console.log(err);
+            });
+        }
+
+        vm.voteUpDiscussion = function () {
+            var req = {
+                method: 'GET',
+                url: discussionsRootUrl + '/' + vm.discussion.id + '/VoteUp',
+            }
+
+            $http(req).success(function (response) {
+                //console.log("success");
+                vm.discussion.votes++;
+            })
+            .error(function (err) {
+                console.log(err);
+            });
+        }
+
+        vm.voteDownDiscussion = function () {
+            var req = {
+                method: 'GET',
+                url: discussionsRootUrl + '/' + vm.discussion.id + '/VoteDown',
+            }
+
+            $http(req).success(function (response) {
+                //console.log("success");
+                vm.discussion.votes--;
+            })
+            .error(function (err) {
+                console.log(err);
+            });
+        }
+
+        vm.voteUpPost = function (post) {
+            var req = {
+                method: 'GET',
+                url: postsRootUrl + '/' + post.id + '/VoteUp',
+            }
+
+            $http(req).success(function (response) {
+                //console.log("success");
+                post.votes++;
+            })
+            .error(function (err) {
+                console.log(err);
+            });
+        }
+
+        vm.voteDownPost = function (post) {
+            var req = {
+                method: 'GET',
+                url: postsRootUrl + '/' + post.id + '/VoteDown',
+            }
+
+            $http(req).success(function (response) {
+                //console.log("success");
+                post.votes--;
+            })
+            .error(function (err) {
+                console.log(err);
+            });
+        }
+
+
+        vm.createPostSubmit = function () {
+            var req = {
+                method: 'POST',
+                url: postsRootUrl,
+                headers: { 'Content-Type': 'application/json' },
+                data: vm.post
+            }
+
+            $http(req).success(function () {
+                console.log("success");
+                })
+            .error(function (err) {
+                console.log(err);
+            });
+        }
+    }
+
+})();

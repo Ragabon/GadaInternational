@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Gada</title>
+    <link href="assets/css/fonts.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/textAngular.css" rel="stylesheet" />
+    <link href="assets/css/ng-tags-input.min.css" rel="stylesheet" />
+    <link href="assets/css/ng-tags-input.bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/app.css" rel="stylesheet" />
+    <link href="assets/css/ngToast.min.css" rel="stylesheet" />
+    <!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body ng-app="app" style="padding-top: 90px; background-color:#e9eaed;">
+    <!--    <div class="wrapper">
+            <div class="box">
+                <div class="row row-offcanvas row-offcanvas-left">
+                    <!-- main -->
+    <!--div class="column col-sm-12 col-xs-11" id="main">-->
+    <!--<nav class="navbar navbar-black">-->
+         <div ui-view="menu"></div>
+    
+    <!--</nav>-->
+    <!--<div ng-include="'app/shared/header.html'" class="navbar navbar-black navbar-static-top"></div>-->
+    <!--<div class="padding">-->
+    <!--<div class="full col-sm-12">-->
+    <!-- content -->
+    <!--<div class="row">-->
+    <div class="container-fluid">
+        <toast></toast>
+        <!--<div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">-->
+        <div class="container">
+            <div ui-view="content"></div>
+        </div>
+         <!--   </div>
+        </div>-->
+    </div>
+    <!--</div>
+        </div>
+    </div>-->
+    <!--<div ng-include="'app/shared/footer.html'" class="row" id="footer"><copyright></copyright></div>-->
+    <!--</div>
+            </div>
+        </div>
+    </div>-->
+    <!-- redirect -->
+    <script type="text/javascript">
+        if (window.location.protocol === "http:" && window.location.host !== 'localhost:9593') {
+            window.location.href = "https://" + window.location.host + window.location.pathname
+        }
+        if (window.location.host === "www.gadainternational.org") {
+            window.location.href = "https://gadainternational.org" + window.location.pathname
+        }
+    </script>
+
+    <!-- script references -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Library Scripts -->
+    <script src="assets/libs/angular.js"></script>
+    <script src="assets/libs/angular-ui-router.min.js"></script>
+    <script src="assets/libs/textAngular-rangy.min.js"></script>
+    <script src="assets/libs/textAngular-sanitize.min.js"></script>
+    <script src="assets/libs/textAngular.min.js"></script>
+    <script src="assets/libs/angularjs-gravatardirective.min.js"></script>
+    <script src="assets/libs/ng-tags-input.min.js"></script>
+    <script src="assets/libs/autocomplete.js"></script>
+    <script src="assets/libs/ui-bootstrap-tpls-0.13.3.min.js"></script>
+    <script src="assets/libs/ngToast.min.js"></script>
+    <script src="assets/libs/ngStorage.min.js"></script>
+    <script src="assets/libs/angular-animate.min.js"></script>
+
+    <!-- Application Script -->
+    <script src="app/app.module.js"></script>
+    <script src="app/core/core.module.js"></script>
+    <script src="app/core/constants.js"></script>
+    <script src="app/core/config.js"></script>
+    <script src="app/shared/common/common.services.js"></script>
+    <script src="app/app.widgets.js"></script>
+    <script src="app/shared/menu.module.js"></script>
+
+    <!--<script src="app/app.routes.js"></script>-->
+
+    <script src="app/shared/menu.js"></script>
+
+    <!-- data -->
+    <script src="app/data/generic.data.js"></script>
+    <script src="app/data/login.data.js"></script>
+    <script src="app/data/news.data.js"></script>
+    <script src="app/data/home.data.js"></script>
+
+    <!-- Home-->
+    <script src="app/home/home.module.js"></script>
+    <script src="app/home/home.js"></script>
+    <script src="app/home/newsFeedWidget.js"></script>
+
+    <!-- About -->
+    <script src="app/about/about.module.js"></script>
+    <script src="app/about/about.js"></script>
+
+    <!-- Login -->
+    <script src="app/login/login.module.js"></script>
+    <script src="app/login/login.js"></script>
+    <script src="app/login/logout.js"></script>
+
+    <!-- Discussions -->
+    <script src="app/discussions/discussions.module.js"></script>
+    <script src="app/data/discussions.data.js"></script>
+    <script src="app/discussions/createDiscussion.js"></script>
+    <script src="app/discussions/discussionDetail.js"></script>
+    <script src="app/discussions/discussionList.js"></script>
+    <script src="app/discussions/relatedDiscussionsWidget.js"></script>
+
+    <!-- Posts -->
+    <script src="app/posts/posts.module.js"></script>
+    <script src="app/posts/latestPostsWidget.js"></script>
+    <script src="app/data/posts.data.js"></script>
+
+    <!-- News -->
+    <script src="app/news/news.module.js"></script>
+    <script src="app/news/newsWidget.js"></script>
+
+    <!-- Twitter -->
+    <script src="app/tweets/tweets.module.js"></script>
+    <script src="app/tweets/twitterWidget.js"></script>
+
+    <!-- Interests -->
+    <script src="app/interests/interests.module.js"></script>
+    <script src="app/interests/interests.js"></script>
+
+    <!-- Profile -->
+    <script src="app/profile/profile.module.js"></script>
+    <script src="app/profile/profile.js"></script>
+    <script src="app/data/profile.data.js"></script>
+</body>
+</html>

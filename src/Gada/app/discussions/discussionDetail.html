@@ -1,0 +1,104 @@
+﻿<div class="col-sm-12">
+    <h2>{{vm.discussion.title}}</h2>
+    <hr />
+</div>
+
+<!-- list of discussions -->
+<div class="col-sm-9">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <!--<div class="col-xs-1">
+                    <a href="" ng-click="vm.voteUpDiscussion()" class="vote"><i class="fa fa-arrow-circle-up fa-3x vote-btn"></i></a>
+                    <div class="badge"><h3>{{vm.discussion.votes}}</h3></div>
+                    <a href="" ng-click="vm.voteDownDiscussion()"><i class="fa fa-arrow-circle-down fa-3x vote-btn"></i></a>
+                </div>-->
+                <div class="col-xs-12">
+                    <span ng-bind-html="vm.discussion.description"></span>
+                </div>
+                <div class="col-xs-12 pull-right">
+                    <span ng-repeat="interest in vm.discussion.interests">
+                        <span class="interest-badge">
+                            <a href="#">
+                                <span class="label label-warning">{{interest}}</span>
+                            </a>
+                        </span>
+                    </span>
+                    <br />
+                    <br />
+                </div>
+                <div class="col-xs-5 pull-right">
+                    <div class="panel-blue">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <gravatar-image data-gravatar-email="vm.discussion.createdBy" data-gravatar-size="50" data-gravatar-rating="pg" data-gravatar-default="identicon" data-gravatar-secure="true" class="pull-left"></gravatar-image>
+                            </div>
+                            <div class="col-xs-10">
+                                <p>
+                                    <small class="text-muted">created {{vm.discussion.created}} by <a href="#">{{vm.discussion.createdBy}}</a></small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>{{vm.postCount}} Posts</h3>
+            
+            <hr/>
+
+            <div ng-repeat="post in vm.discussion.posts">
+                <div class="row">
+
+                    <div class="col-xs-1">
+                        <a href="" ng-click="vm.voteUpPost(post)" class="vote"><i class="fa fa-arrow-circle-up fa-3x vote-btn"></i></a>
+                        <div class="badge"><h3>{{post.votes}}</h3></div>
+                        <a href="" ng-click="vm.voteDownPost(post)"><i class="fa fa-arrow-circle-down fa-3x vote-btn"></i></a>
+                    </div>
+                    <div class="col-xs-11">
+                        <span ng-bind-html="post.post"></span>
+                    </div>
+                    <div class="col-xs-5 pull-right">
+                        <div class="panel-blue">
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <gravatar-image data-gravatar-email="post.postedBy" data-gravatar-size="50" data-gravatar-rating="pg" data-gravatar-default="identicon" data-gravatar-secure="true" class="pull-left"></gravatar-image>
+                                </div>
+                                <div class="col-xs-10">
+                                    <p>
+                                        <small class="text-muted">created {{post.posted}} by <a href="#">{{post.postedBy}}</a></small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-11 pull-right">
+                        <hr />
+                    </div>
+                </div>
+            </div>
+
+            <hr/>
+
+            <h3>Your View</h3>
+            <form class="form-horizontal" name="createPostForm">
+                <input type="hidden" name="discussionId" ng-model="vm.post.discussionId" />
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div text-angular="text-angular" ta-toolbar-class="btn-toolbar" ta-toolbar-group-class="btn-group" ta-toolbar-button-class="btn btn-default" ta-toolbar-button-active-class="active" name="content" ng-model="vm.post.content" ta-disabled='disabled'></div>
+                    </div>
+                </div>
+                <hr/>
+                <div class="col-xs-12 pull-right" style="padding-right:0;">
+                    <button id="btnCreate" class="btn btn-primary pull-right" ng-click="vm.createPostSubmit(createPostForm)">Post</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- ad banners -->
+<div class="col-sm-3">
+    <div ng-include="'app/discussions/relatedDiscussionsWidget.html'"></div>
+</div>

@@ -1,0 +1,18 @@
+﻿<div class="panel panel-default" ng-controller="NewsWidget as vm">
+    <div class="panel-heading"><h4>News</h4></div>
+    <div class="panel-body">
+        <div ng-repeat="feed in vm.newsList">
+            <div class="row">
+                <img src="{{feed.thumbnail}}" class="img-circle pull-left" style="margin-right: 15px;" />
+                <p class="lead">{{feed.title}}</p>
+                <p>
+                    {{feed.description}}
+                    <br />
+                    <a href="{{feed.link}}" target="_blank" class="pull-right">read more</a>
+                    <br />
+                    <hr />
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
