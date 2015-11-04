@@ -10,7 +10,7 @@ The Gada International web application has been built with the following technol
 - Entity Framework
 - SQL Server 2014
 - AutoMapper
-- Autoac
+- Autofac
 - OWIN
 - .Net Identity
 
