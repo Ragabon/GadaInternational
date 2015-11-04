@@ -1,5 +1,5 @@
-# GadaInternational
-Source code for GadaInternational.org
+#Gada International
+
 ## Technologies
 
 The Gada International web application has been built with the following technologies:
