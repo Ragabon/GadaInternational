@@ -14,3 +14,7 @@ The Gada International web application has been built with the following technol
 - OWIN
 - .Net Identity
 
+## Setup
+
+For this project to work you will also need the GadaInternational-Users project from https://github.com/Ragabon/GadaInternational-Users. 
+To set up the database you will need to run the migration scripts in order from the `migrations.txt` file in the `sql` folder
